@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <linearGradient id="matchCheckGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Segmented Requirement Alignment Gauge Outer Ring in Emerald & Champagne -->
+  <!-- Segment 1 (Top Left) -->
+  <path d="M42 22C47.5 19.5 53.5 18 60 18V28C55.5 28 51.5 29 47.5 31L42 22Z" fill="#064e3b" />
+  <!-- Segment 2 (Top Right) -->
+  <path d="M60 18C66.5 18 72.5 19.5 78 22L72.5 31C68.5 29 64.5 28 60 28V18Z" fill="#047857" />
+  <!-- Segment 3 (Right Top) -->
+  <path d="M84 26C91.5 31.5 97 39 100 48L90.5 51.5C88.5 45 84.5 39.5 79 35L84 26Z" fill="#e5cca0" />
+  <!-- Segment 4 (Right Bottom) -->
+  <path d="M102 60C102 66.5 100.5 72.5 98 78L89 72.5C91 68.5 92 64.5 92 60H102Z" fill="#f8e7c9" />
+  <!-- Segment 5 (Bottom Right) -->
+  <path d="M94 84C88.5 91.5 81 97 72 100L68.5 90.5C75 88.5 80.5 84.5 85 79L94 84Z" fill="#064e3b" />
+  <!-- Segment 6 (Bottom Left) -->
+  <path d="M60 102C53.5 102 47.5 100.5 42 98L47.5 89C51.5 91 55.5 92 60 92V102Z" fill="#022c22" />
+  <!-- Segment 7 (Left Bottom) -->
+  <path d="M26 94C18.5 88.5 13 81 10 72L19.5 68.5C21.5 75 25.5 80.5 31 85L26 94Z" fill="#0b4536" />
+  <!-- Segment 8 (Left Top) -->
+  <path d="M18 42C19.5 36.5 22 31.5 26 26L35 31C32 35 30 39 29 43.5L18 42Z" fill="#064e3b" />
+
+  <!-- Center Circle Container -->
+  <circle cx="60" cy="60" r="32" fill="#ffffff" stroke="#e8d5b5" stroke-width="2.5" />
+  <circle cx="60" cy="60" r="28" fill="#fdf8ee" />
+
+  <!-- Bold Requirement Verified Checkmark in Emerald -->
+  <path d="M44 60L54 70L76 48" stroke="url(#matchCheckGrad)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

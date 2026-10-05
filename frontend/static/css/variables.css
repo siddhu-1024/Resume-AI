@@ -1,0 +1,141 @@
+/* ==========================================================================
+   Design Tokens & Theme Variables — Emerald (#064E3B) + Champagne (#F8E7C9)
+   Visual Identity: Premium, Elegant Recruitment-Tech / SaaS Aesthetic
+   ========================================================================== */
+
+:root {
+  /* 1. Primary Brand Color — Emerald */
+  --primary: #064e3b;
+  --primary-hover: #047857;
+  --primary-dark: #022c22;
+  --primary-light: #ecfdf5;
+  --primary-subtle: #f2fbf7;
+  --primary-border: #a7f3d0;
+  --primary-gradient: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
+  --primary-ring: rgba(6, 78, 59, 0.18);
+
+  /* 2. Secondary Brand Color — Champagne */
+  --champagne: #f8e7c9;
+  --champagne-light: #fdf8ee;
+  --champagne-subtle: #faf2e4;
+  --champagne-dark: #e5cca0;
+  --champagne-border: #e8d5b5;
+  --champagne-text: #064e3b;
+  --champagne-gradient: linear-gradient(135deg, #f8e7c9 0%, #ecd4ad 100%);
+  --emerald-champagne-gradient: linear-gradient(135deg, #064e3b 0%, #033b2e 60%, #f8e7c9 100%);
+
+  /* 3. Deep Emerald & Dark Surfaces */
+  --deep-emerald: #022c22;
+  --deep-emerald-surface: #033b2e;
+  --deep-emerald-muted: #0b4536;
+  --deep-emerald-gradient: linear-gradient(135deg, #022c22 0%, #064e3b 100%);
+  --black: #022c22;
+  --black-surface: #033b2e;
+  --black-muted: #0b4536;
+  --black-hover: #064e3b;
+  --black-gradient: linear-gradient(135deg, #022c22 0%, #064e3b 100%);
+
+  /* 4. Soft Cream & Canvas System */
+  --cream: #fffdf8;
+  --white: #ffffff;
+  --bg-app: #fffdf8;
+  --bg-app-subtle: #faf6ee;
+  --bg-surface: #ffffff;
+  --bg-surface-subtle: #faf7ee;
+  --bg-surface-alt: #f5efe1;
+  --bg-card-header: linear-gradient(to right, #faf4e6, #fffdf8);
+  --bg-champagne: #f8e7c9;
+
+  /* 5. Typography Colors: High Contrast & Readability */
+  --text-heading: #022c22;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --text-light: #9ca3af;
+  --text-white: #ffffff;
+  --text-primary: #064e3b;
+  --text-champagne: #78350f;
+
+  /* 6. Borders & Separation Lines */
+  --border-color: #e5e7eb;
+  --border-subtle: #f3f4f6;
+  --border-hover: #d1d5db;
+  --border-focus: #064e3b;
+  --border-dark: #043b2d;
+  --border-emerald: #064e3b;
+  --border-champagne: #e8d5b5;
+  --border-blue-subtle: #a7f3d0;
+
+  /* 7. Semantic Status Accents (Restrained & High Contrast) */
+  --status-applied-bg: #faf2e4;
+  --status-applied-text: #064e3b;
+  --status-applied-border: #e8d5b5;
+
+  --status-success-bg: #ecfdf5;
+  --status-success-text: #065f46;
+  --status-success-border: #a7f3d0;
+
+  --status-warning-bg: #fffbeb;
+  --status-warning-text: #92400e;
+  --status-warning-border: #fde68a;
+
+  --status-danger-bg: #fef2f2;
+  --status-danger-text: #991b1b;
+  --status-danger-border: #fecaca;
+
+  --status-neutral-bg: #f9fafb;
+  --status-neutral-text: #4b5563;
+  --status-neutral-border: #e5e7eb;
+
+  /* Legacy semantic variables aligned to Emerald + Champagne */
+  --success: #065f46;
+  --success-bg: #ecfdf5;
+  --success-text: #065f46;
+  --success-border: #a7f3d0;
+
+  --warning: #92400e;
+  --warning-bg: #fffbeb;
+  --warning-text: #92400e;
+  --warning-border: #fde68a;
+
+  --danger: #991b1b;
+  --danger-bg: #fef2f2;
+  --danger-text: #991b1b;
+  --danger-border: #fecaca;
+
+  --info: #064e3b;
+  --info-bg: #f8e7c9;
+  --info-text: #064e3b;
+  --info-border: #e8d5b5;
+
+  /* Score Tier Badges */
+  --score-high: #065f46;
+  --score-high-bg: #ecfdf5;
+  --score-mid: #92400e;
+  --score-mid-bg: #fffbeb;
+  --score-low: #991b1b;
+  --score-low-bg: #fef2f2;
+
+  /* 8. Elevation & Refined Warm Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(2, 44, 34, 0.04);
+  --shadow-sm: 0 1px 3px 0 rgba(2, 44, 34, 0.06), 0 1px 2px -1px rgba(2, 44, 34, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(2, 44, 34, 0.07), 0 2px 4px -2px rgba(2, 44, 34, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(2, 44, 34, 0.08), 0 4px 6px -4px rgba(2, 44, 34, 0.03);
+  --shadow-card: 0 1px 3px 0 rgba(2, 44, 34, 0.04), 0 0 0 1px rgba(229, 231, 235, 0.85);
+  --shadow-card-hover: 0 10px 25px -5px rgba(6, 78, 59, 0.09), 0 4px 10px -2px rgba(6, 78, 59, 0.04), 0 0 0 1px #e8d5b5;
+  --shadow-modal: 0 20px 25px -5px rgba(2, 44, 34, 0.22), 0 8px 10px -6px rgba(2, 44, 34, 0.1);
+
+  /* 9. Shape & Sizing Tokens */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* 10. Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* 11. Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}

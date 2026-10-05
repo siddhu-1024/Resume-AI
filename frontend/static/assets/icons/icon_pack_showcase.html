@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Screening Assistant — Official Icon Pack</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-emerald: #064e3b;
+      --secondary-champagne: #f8e7c9;
+      --deep-emerald: #022c22;
+      --soft-cream: #fffdf8;
+      --bg-page: #fffdf8;
+      --bg-card: #ffffff;
+      --border-color: #e5e7eb;
+      --champagne-border: #e8d5b5;
+      --text-heading: #022c22;
+      --text-body: #1f2937;
+      --text-muted: #6b7280;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-body);
+      padding: 40px 24px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header-box {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      background-color: var(--secondary-champagne);
+      color: var(--deep-emerald);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+      border: 1px solid var(--champagne-border);
+      box-shadow: 0 1px 3px rgba(6, 78, 59, 0.06);
+    }
+
+    .header-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text-heading);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .header-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .palette-strip {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 28px 0 36px 0;
+      flex-wrap: wrap;
+    }
+
+    .color-swatch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-heading);
+      box-shadow: 0 1px 2px rgba(6, 78, 59, 0.04);
+    }
+
+    .color-circle {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+    }
+
+    .color-primary-emerald {
+      background-color: var(--primary-emerald);
+    }
+
+    .color-secondary-champagne {
+      background-color: var(--secondary-champagne);
+      border: 1px solid var(--champagne-border);
+    }
+
+    .color-deep-emerald {
+      background-color: var(--deep-emerald);
+    }
+
+    .color-soft-cream {
+      background-color: var(--soft-cream);
+      border: 1px solid #e5e7eb;
+    }
+
+    .icons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .icon-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--champagne-border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.2s ease;
+      position: relative;
+      box-shadow: 0 1px 3px rgba(6, 78, 59, 0.04);
+    }
+
+    .icon-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px -5px rgba(6, 78, 59, 0.12), 0 0 0 1px var(--champagne-border);
+    }
+
+    .icon-index-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--deep-emerald);
+      background: var(--secondary-champagne);
+      border: 1px solid var(--champagne-border);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .icon-preview-wrap {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 16px 0 20px 0;
+      background: linear-gradient(135deg, #ffffff, #fdf8ee);
+      border-radius: 12px;
+      border: 1px solid var(--champagne-border);
+      padding: 10px;
+      box-shadow: inset 0 1px 2px rgba(6, 78, 59, 0.03);
+    }
+
+    .icon-preview-wrap img, .icon-preview-wrap svg {
+      width: 72px;
+      height: 72px;
+    }
+
+    .icon-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 4px;
+    }
+
+    .icon-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      min-height: 36px;
+    }
+
+    .icon-actions {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+      margin-top: auto;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--primary-emerald);
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #047857;
+      box-shadow: 0 3px 8px rgba(6, 78, 59, 0.25);
+    }
+
+    .btn-secondary {
+      background-color: #ffffff;
+      border-color: var(--champagne-border);
+      color: var(--text-body);
+    }
+    .btn-secondary:hover {
+      background-color: #fdf8ee;
+      border-color: var(--primary-emerald);
+      color: var(--primary-emerald);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--deep-emerald);
+      color: var(--secondary-champagne);
+      border: 1px solid var(--champagne-border);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      display: none;
+      box-shadow: 0 10px 20px rgba(6, 78, 59, 0.2);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header-box">
+    <div class="header-badge">Design Assets &amp; Iconography</div>
+    <h1 class="header-title">Resume Screening Assistant — Icon Pack</h1>
+    <p class="header-subtitle">
+      A collection of 10 modern, vector-style icons designed in a premium Emerald and Champagne palette for web navigation, application branding, reports, and presentation slides.
+    </p>
+
+    <div class="palette-strip">
+      <div class="color-swatch">
+        <div class="color-circle color-primary-emerald"></div>
+        <span>Primary Emerald (#064E3B)</span>
+      </div>
+      <div class="color-swatch">
+        <div class="color-circle color-secondary-champagne"></div>
+        <span>Secondary Champagne (#F8E7C9)</span>
+      </div>
+      <div class="color-swatch">
+        <div class="color-circle color-deep-emerald"></div>
+        <span>Deep Emerald (#022C22)</span>
+      </div>
+      <div class="color-swatch">
+        <div class="color-circle color-soft-cream"></div>
+        <span>Soft Cream (#FFFDF8)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="icons-grid">
+    <!-- 01. Main Logo -->
+    <div class="icon-card">
+      <span class="icon-index-tag">01</span>
+      <div class="icon-preview-wrap">
+        <img src="01-main-logo.svg" alt="Main Project Logo">
+      </div>
+      <h3 class="icon-name">Main Project Logo</h3>
+      <p class="icon-desc">Interlocking resume document with intelligent AI lens and neural spark in Emerald &amp; Champagne.</p>
+      <div class="icon-actions">
+        <a href="01-main-logo.svg" download class="btn btn-secondary">Download SVG</a>
+        <button class="btn btn-primary" onclick="copySVG('01-main-logo.svg')">Copy SVG</button>
+      </div>
+    </div>
+
+    <!-- 02. Candidate/User -->
+    <div class="icon-card">
+      <span class="icon-index-tag">02</span>
+      <div class="icon-preview-wrap">
+        <img src="02-candidate-user.svg" alt="Candidate Portal">
+      </div>
+      <h3 class="icon-name">Candidate / User</h3>
+      <p class="icon-desc">Graduate cap and candidate avatar profile with verified credential star.</p>
+      <div class="icon-actions">
+        <a href="02-candidate-user.svg" download class="btn btn-secondary">Download SVG</a>
+        <button class="btn btn-primary" onclick="copySVG('02-candidate-user.svg')">Copy SVG</button>
+      </div>
+    </div>
+
+    <!-- 03. Admin -->
+    <div class="icon-card">
+      <span class="icon-index-tag">03</span>
+      <div class="icon-preview-wrap">
+        <img src="03-admin.svg" alt="Admin Portal">
+      </div>
+      <h3 class="icon-name">Admin</h3>
+      <p class="icon-desc">Security shield with access keyhole and recruiter control toggle node.</p>
+      <div class="icon-actions">
+        <a href="03-admin.svg" download class="btn btn-secondary">Download SVG</a>
+        <button class="btn btn-primary" onclick="copySVG('03-admin.svg')">Copy SVG</button>
+      </div>
+    </div>
+
+    <!-- 04. Job Opening -->
+    <div class="icon-card">
+      <span class="icon-index-tag">04</span>
+      <div class="icon-preview-wrap">
+        <img src="04-job-opening.svg" alt="Job Opening">
+      </div>
+      <h3 class="icon-name">Job Opening</h3>
+      <p class="icon-desc">Recruiter briefcase with clean clasp and new position plus badge.</p>
+      <div class="icon-actions">
+        <a href="04-job-opening.svg" download class="btn btn-secondary">Download SVG</a>
+        <button class="btn btn-primary" onclick="copySVG('04-job-opening.svg')">Copy SVG</button>
+      </div>
+    </div>
+
+    <!-- 05. Resume -->
+    <div class="icon-card">
+      <span class="icon-index-tag">05</span>
+      <div class="icon-preview-wrap">
+        <img src="05-resume.svg" alt="Resume Document">
+      </div>
+      <h3 class="icon-name">Resume</h3>
+      <p class="icon-desc">Structured CV document with profile snapshot and skill line blocks.</p>
+      <div class="icon-actions">
+        <a href="05-resume.svg" download class="btn btn-secondary">Download SVG</a>
+        <button class="btn btn-primary" onclick="copySVG('05-resume.svg')">Copy SVG</button>
+      </div>
+    </div>
+
+    <!-- 06. Resume Screening -->
+    <div class="icon-card">
+      <span class="icon-index-tag">06</span>
+      <div class="icon-preview-wrap">
+        <img src="06-resume-screening.svg" alt="Resume Screening">
+      </div>
+      <h3 class="icon-name">Resume Screening</h3>
+      <p class="icon-desc">Automated laser scan beam parsing extracted candidate qualifications.</p>
+      <div class="icon-actions">
+        <a href="06-resume-screening.svg" download class="btn btn-secondary">Download SVG</a>
+        <button class="btn btn-primary" onclick="copySVG('06-resume-screening.svg')">Copy SVG</button>
+      </div>
+    </div>
+
+    <!-- 07. Job Requirement Match -->
+    <div class="icon-card">
+      <span class="icon-index-tag">07</span>
+      <div class="icon-preview-wrap">
+        <img src="07-job-requirement-match.svg" alt="Job Requirement Match">
+      </div>
+      <h3 class="icon-name">Requirement Match</h3>
+      <p class="icon-desc">Segmented requirement alignment gauge with verified checkmark.</p>
+      <div class="icon-actions">
+        <a href="07-job-requirement-match.svg" download class="btn btn-secondary">Download SVG</a>
+        <button class="btn btn-primary" onclick="copySVG('07-job-requirement-match.svg')">Copy SVG</button>
+      </div>
+    </div>
+
+    <!-- 08. Applicants -->
+    <div class="icon-card">
+      <span class="icon-index-tag">08</span>
+      <div class="icon-preview-wrap">
+        <img src="08-applicants.svg" alt="Applicants Group">
+      </div>
+      <h3 class="icon-name">Applicants</h3>
+      <p class="icon-desc">Candidate talent pool group silhouettes with centered highlight avatar.</p>
+      <div class="icon-actions">
+        <a href="08-applicants.svg" download class="btn btn-secondary">Download SVG</a>
+        <button class="btn btn-primary" onclick="copySVG('08-applicants.svg')">Copy SVG</button>
+      </div>
+    </div>
+
+    <!-- 09. Application Status -->
+    <div class="icon-card">
+      <span class="icon-index-tag">09</span>
+      <div class="icon-preview-wrap">
+        <img src="09-application-status.svg" alt="Application Status">
+      </div>
+      <h3 class="icon-name">Application Status</h3>
+      <p class="icon-desc">Multi-stage recruitment pipeline stages with interconnected node path.</p>
+      <div class="icon-actions">
+        <a href="09-application-status.svg" download class="btn btn-secondary">Download SVG</a>
+        <button class="btn btn-primary" onclick="copySVG('09-application-status.svg')">Copy SVG</button>
+      </div>
+    </div>
+
+    <!-- 10. Reports & Analytics -->
+    <div class="icon-card">
+      <span class="icon-index-tag">10</span>
+      <div class="icon-preview-wrap">
+        <img src="10-reports-analytics.svg" alt="Reports & Analytics">
+      </div>
+      <h3 class="icon-name">Reports & Analytics</h3>
+      <p class="icon-desc">Analytical metric bar charts, upward conversion curve, and growth badge.</p>
+      <div class="icon-actions">
+        <a href="10-reports-analytics.svg" download class="btn btn-secondary">Download SVG</a>
+        <button class="btn btn-primary" onclick="copySVG('10-reports-analytics.svg')">Copy SVG</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast-msg">SVG code copied to clipboard!</div>
+
+<script>
+  async function copySVG(filename) {
+    try {
+      const res = await fetch(filename);
+      const text = await res.text();
+      await navigator.clipboard.writeText(text);
+      const toast = document.getElementById('toast-msg');
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 2500);
+    } catch (e) {
+      alert('Could not copy SVG: ' + e.message);
+    }
+  }
+</script>
+
+</body>
+</html>

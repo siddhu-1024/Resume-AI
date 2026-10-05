@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <linearGradient id="barEmeraldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+    <linearGradient id="barChampagneGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8e7c9" />
+      <stop offset="100%" stop-color="#e5cca0" />
+    </linearGradient>
+    <linearGradient id="barDeepEmeraldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+  </defs>
+
+  <!-- Metric Graph Axes -->
+  <path d="M16 16V98C16 101.314 18.6863 104 22 104H104" stroke="#022c22" stroke-width="4.5" stroke-linecap="round" />
+
+  <!-- Metric Bar 1 (Deep Emerald) -->
+  <rect x="28" y="72" width="14" height="26" rx="4" fill="url(#barDeepEmeraldGrad)" />
+
+  <!-- Metric Bar 2 (Emerald) -->
+  <rect x="48" y="52" width="14" height="46" rx="4" fill="url(#barEmeraldGrad)" />
+
+  <!-- Metric Bar 3 (Champagne) -->
+  <rect x="68" y="36" width="14" height="62" rx="4" fill="url(#barChampagneGrad)" />
+
+  <!-- Upward Trend Line with Arrow in Emerald -->
+  <path d="M26 68L48 44L68 56L96 20" stroke="#064e3b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M84 20H98V34" stroke="#064e3b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Analytics Growth Badge in Champagne -->
+  <circle cx="98" cy="84" r="16" fill="white" />
+  <circle cx="98" cy="84" r="13" fill="url(#barChampagneGrad)" />
+  <path d="M92 88L96 84L99 87L104 80" stroke="#064e3b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M100 80H104V84" stroke="#064e3b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

@@ -1,0 +1,384 @@
+/* ==========================================================================
+   Screening, Candidate Profile & Comparison Matrix — Emerald + Champagne
+   ========================================================================== */
+
+/* Candidate Grid Card View */
+.candidate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.candidate-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xs);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  position: relative;
+}
+
+.candidate-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--champagne-border);
+}
+
+.candidate-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.candidate-card-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.candidate-card-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.2;
+}
+
+.candidate-card-role {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.candidate-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.candidate-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.candidate-skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.candidate-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+  gap: 8px;
+}
+
+/* Requirement Matrix Table */
+.req-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.req-matrix-table th {
+  background-color: var(--bg-surface-alt);
+  padding: 10px 14px;
+  font-weight: 700;
+  color: var(--text-heading);
+  font-size: 11px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.req-matrix-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: top;
+}
+
+.req-matrix-table tr:last-child td {
+  border-bottom: none;
+}
+
+.status-cell-matched {
+  color: #065f46;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-cell-partial {
+  color: #92400e;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-cell-missing {
+  color: #991b1b;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.evidence-quote {
+  font-size: 12px;
+  color: var(--text-main);
+  background-color: var(--champagne-light);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--primary);
+  font-style: normal;
+  display: block;
+}
+
+.evidence-not-found {
+  font-size: 12px;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* Candidate Detail Profile Drawer */
+.candidate-detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px;
+  background: linear-gradient(135deg, var(--bg-surface-subtle) 0%, var(--champagne-light) 100%);
+  border-bottom: 1px solid var(--champagne-border);
+  flex-wrap: wrap;
+}
+
+.candidate-detail-identity {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.candidate-large-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--primary), var(--deep-emerald));
+  color: var(--champagne);
+  border: 2px solid var(--champagne-border);
+  font-size: 24px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(6, 78, 59, 0.15);
+}
+
+.candidate-title-block h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-heading);
+}
+
+.candidate-contact-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.candidate-contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary);
+}
+
+.match-score-gauge-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-surface);
+  padding: 14px 22px;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--champagne-border);
+  box-shadow: var(--shadow-sm);
+  min-width: 140px;
+}
+
+.gauge-score-number {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.gauge-score-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+}
+
+/* Dimension Sub-scores Progress Bars */
+.dimension-score-row {
+  margin-bottom: 12px;
+}
+
+.dimension-score-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.dimension-progress-bg {
+  height: 7px;
+  background-color: #e2e8f0;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.dimension-progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--primary-gradient);
+  transition: width var(--transition-normal);
+}
+
+/* Upload Dropzone */
+.upload-dropzone {
+  border: 2px dashed var(--champagne-border);
+  border-radius: var(--radius-xl);
+  padding: 36px 24px;
+  text-align: center;
+  background-color: var(--bg-surface-subtle);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.upload-dropzone:hover, .upload-dropzone.dragover {
+  border-color: var(--primary);
+  background-color: var(--champagne-light);
+  box-shadow: 0 4px 14px rgba(6, 78, 59, 0.08);
+}
+
+.upload-dropzone-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-full);
+  background-color: var(--champagne);
+  color: var(--deep-emerald);
+  border: 1px solid var(--champagne-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-file-queue {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.upload-file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background-color: var(--bg-surface-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+}
+
+/* Notes Section */
+.notes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.note-item {
+  background-color: var(--bg-surface-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.note-body {
+  font-size: 13px;
+  color: var(--text-main);
+  white-space: pre-wrap;
+}
+
+/* Side-by-side Candidate Comparison Grid */
+.comparison-container {
+  display: grid;
+  grid-template-columns: 200px repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  overflow-x: auto;
+}
+
+.comparison-header-row, .comparison-row {
+  display: contents;
+}
+
+.comparison-label-cell {
+  background-color: var(--champagne-light);
+  border: 1px solid var(--champagne-border);
+  padding: 12px;
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--deep-emerald);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+}
+
+.comparison-data-cell {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+}

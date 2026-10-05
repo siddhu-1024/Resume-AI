@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <linearGradient id="candEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="candChampagne" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8e7c9" />
+      <stop offset="100%" stop-color="#ecd4ad" />
+    </linearGradient>
+    <linearGradient id="candDeepEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Circular Outer Backdrop Subtle Ring -->
+  <circle cx="60" cy="60" r="50" fill="#fdf8ee" stroke="#e8d5b5" stroke-width="2" />
+
+  <!-- Graduation Cap -->
+  <path d="M60 22L24 38L60 54L96 38L60 22Z" fill="url(#candDeepEmerald)" />
+  <path d="M60 22L24 38L60 54L96 38L60 22Z" stroke="#022c22" stroke-width="2" />
+  <path d="M38 46V64C38 72 48 78 60 78C72 78 82 72 82 64V46L60 56L38 46Z" fill="url(#candEmerald)" opacity="0.9" />
+  
+  <!-- Cap Tassel in Champagne -->
+  <path d="M96 38V62C96 64.2091 94.2091 66 92 66H90" stroke="url(#candChampagne)" stroke-width="3.5" stroke-linecap="round" />
+  <circle cx="90" cy="67" r="3.5" fill="#e5cca0" />
+
+  <!-- Candidate Torso & Shoulders -->
+  <path d="M26 102C26 87.6406 37.6406 76 52 76H68C82.3594 76 94 87.6406 94 102V104H26V102Z" fill="url(#candDeepEmerald)" />
+  <path d="M42 76L60 92L78 76" fill="url(#candChampagne)" opacity="0.9" />
+
+  <!-- Star Verification Badge -->
+  <circle cx="60" cy="38" r="7" fill="white" />
+  <path d="M60 33L61.5 36.5L65 37L62.5 39.5L63 43L60 41L57 43L57.5 39.5L55 37L58.5 36.5L60 33Z" fill="url(#candEmerald)" />
+</svg>

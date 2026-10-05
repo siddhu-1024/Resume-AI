@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <linearGradient id="mainEmeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="mainChampagneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8e7c9" />
+      <stop offset="100%" stop-color="#ecd4ad" />
+    </linearGradient>
+    <linearGradient id="mainDeepEmeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Document Base Shape -->
+  <path d="M28 22C28 17.5817 31.5817 14 36 14H68L92 38V98C92 102.418 88.4183 106 84 106H36C31.5817 106 28 102.418 28 98V22Z" fill="#ffffff" stroke="url(#mainEmeraldGrad)" stroke-width="5" stroke-linejoin="round" />
+  
+  <!-- Folded Corner -->
+  <path d="M68 14V34C68 36.2091 69.7909 38 72 38H92" fill="#fdf8ee" stroke="url(#mainEmeraldGrad)" stroke-width="5" stroke-linejoin="round" />
+
+  <!-- Document Lines -->
+  <line x1="42" y1="48" x2="60" y2="48" stroke="#064e3b" stroke-opacity="0.5" stroke-width="4" stroke-linecap="round" />
+  <line x1="42" y1="60" x2="52" y2="60" stroke="#e5cca0" stroke-width="4" stroke-linecap="round" />
+  <line x1="42" y1="72" x2="56" y2="72" stroke="#e5cca0" stroke-width="4" stroke-linecap="round" />
+  <line x1="42" y1="84" x2="64" y2="84" stroke="#064e3b" stroke-opacity="0.5" stroke-width="4" stroke-linecap="round" />
+
+  <!-- AI Lens Ring & Sparks -->
+  <circle cx="74" cy="68" r="22" fill="#fffdf8" stroke="url(#mainEmeraldGrad)" stroke-width="6" />
+  <circle cx="74" cy="68" r="16" fill="url(#mainChampagneGrad)" opacity="0.4" />
+  
+  <!-- AI Sparkle Core -->
+  <path d="M74 54L76.5 63.5L86 66L76.5 68.5L74 78L71.5 68.5L62 66L71.5 63.5L74 54Z" fill="url(#mainEmeraldGrad)" />
+
+  <!-- Lens Handle -->
+  <path d="M89 83L104 98" stroke="url(#mainDeepEmeraldGrad)" stroke-width="7" stroke-linecap="round" />
+
+  <!-- Small AI Sparkle Accents in Champagne -->
+  <path d="M96 24L97.5 29.5L103 31L97.5 32.5L96 38L94.5 32.5L89 31L94.5 29.5L96 24Z" fill="#e5cca0" stroke="#064e3b" stroke-width="0.8" />
+</svg>

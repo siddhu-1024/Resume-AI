@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <linearGradient id="resEmeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+    <linearGradient id="resChampagneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8e7c9" />
+      <stop offset="100%" stop-color="#ecd4ad" />
+    </linearGradient>
+  </defs>
+
+  <!-- Document Card Surface -->
+  <rect x="24" y="16" width="72" height="88" rx="10" fill="url(#resEmeraldGrad)" stroke="#022c22" stroke-width="4" />
+
+  <!-- Folded Top-Right Corner in Champagne -->
+  <path d="M68 16H86C91.5228 16 96 20.4772 96 26V44L68 16Z" fill="#022c22" opacity="0.3" />
+  <path d="M68 16V36C68 40.4183 71.5817 44 76 44H96" fill="url(#resChampagneGrad)" />
+
+  <!-- Mini Candidate Photo Avatar Badge on Resume -->
+  <circle cx="44" cy="38" r="10" fill="#fffdf8" />
+  <circle cx="44" cy="35" r="4.5" fill="#064e3b" />
+  <path d="M36 45C36 41 39 39 44 39C49 39 52 41 52 45" fill="#064e3b" />
+
+  <!-- Candidate Name Lines -->
+  <rect x="58" y="32" width="26" height="4.5" rx="2.25" fill="#fffdf8" />
+  <rect x="58" y="40" width="18" height="3.5" rx="1.75" fill="#f8e7c9" />
+
+  <!-- Experience & Skill Text Lines -->
+  <rect x="36" y="56" width="48" height="4" rx="2" fill="#fffdf8" />
+  <rect x="36" y="66" width="48" height="4" rx="2" fill="#fffdf8" />
+  <rect x="36" y="76" width="48" height="4" rx="2" fill="#fffdf8" />
+  <rect x="36" y="86" width="30" height="4" rx="2" fill="#fffdf8" />
+
+  <!-- Skill Pill Highlight Indicator -->
+  <circle cx="86" cy="88" r="5" fill="url(#resChampagneGrad)" />
+</svg>

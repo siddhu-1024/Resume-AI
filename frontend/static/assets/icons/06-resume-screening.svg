@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <linearGradient id="screenDocGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+    <linearGradient id="laserBeamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f8e7c9" stop-opacity="0.2" />
+      <stop offset="25%" stop-color="#e5cca0" />
+      <stop offset="50%" stop-color="#f8e7c9" />
+      <stop offset="75%" stop-color="#e5cca0" />
+      <stop offset="100%" stop-color="#f8e7c9" stop-opacity="0.2" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Document Silhouette -->
+  <rect x="28" y="18" width="64" height="84" rx="10" fill="url(#screenDocGrad)" stroke="#022c22" stroke-width="4" />
+  
+  <!-- Document Fold in Champagne -->
+  <path d="M68 18V36C68 39 71 42 74 42H92" stroke="#e8d5b5" stroke-width="3.5" fill="#f8e7c9" />
+
+  <!-- Content Lines -->
+  <rect x="40" y="34" width="22" height="4" rx="2" fill="#fffdf8" />
+  <rect x="40" y="44" width="40" height="4" rx="2" fill="#fffdf8" />
+  <rect x="40" y="54" width="40" height="4" rx="2" fill="#fffdf8" opacity="0.4" />
+  <rect x="40" y="64" width="40" height="4" rx="2" fill="#fffdf8" />
+  <rect x="40" y="74" width="40" height="4" rx="2" fill="#fffdf8" />
+  <rect x="40" y="84" width="26" height="4" rx="2" fill="#fffdf8" />
+
+  <!-- Laser Beam Scan Line in Champagne -->
+  <rect x="12" y="56" width="96" height="8" rx="4" fill="url(#laserBeamGrad)" filter="url(#glow)" />
+  <line x1="8" y1="60" x2="112" y2="60" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+
+  <!-- Scanning Pulse Nodes -->
+  <circle cx="16" cy="60" r="4" fill="#f8e7c9" stroke="#064e3b" stroke-width="1.5" />
+  <circle cx="104" cy="60" r="4" fill="#f8e7c9" stroke="#064e3b" stroke-width="1.5" />
+</svg>

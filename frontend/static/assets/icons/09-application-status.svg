@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <linearGradient id="pipeEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+    <linearGradient id="pipeChampagne" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8e7c9" />
+      <stop offset="100%" stop-color="#e5cca0" />
+    </linearGradient>
+    <linearGradient id="pipeDeepEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+  </defs>
+
+  <!-- Pipeline Stage Column 1 -->
+  <rect x="16" y="24" width="26" height="72" rx="6" fill="#fdf8ee" stroke="#e8d5b5" stroke-width="2" />
+  <path d="M16 28C16 25.7909 17.7909 24 20 24H38C40.2091 24 42 25.7909 42 28V38L29 44L16 38V28Z" fill="url(#pipeEmerald)" />
+
+  <!-- Pipeline Stage Column 2 -->
+  <rect x="47" y="24" width="26" height="72" rx="6" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="2" />
+  <path d="M47 28C47 25.7909 48.7909 24 51 24H69C71.2091 24 73 25.7909 73 28V38L60 44L47 38V28Z" fill="url(#pipeChampagne)" />
+
+  <!-- Pipeline Stage Column 3 -->
+  <rect x="78" y="24" width="26" height="72" rx="6" fill="#fdf8ee" stroke="#e8d5b5" stroke-width="2" />
+  <path d="M78 28C78 25.7909 79.7909 24 82 24H100C102.209 24 104 25.7909 104 28V38L91 44L78 38V28Z" fill="url(#pipeDeepEmerald)" />
+
+  <!-- Connecting Node Path in Emerald -->
+  <path d="M29 76H60H91" stroke="#064e3b" stroke-width="4.5" stroke-linecap="round" />
+
+  <!-- Pipeline Active Stage Check Nodes -->
+  <circle cx="29" cy="76" r="8.5" fill="white" stroke="#064e3b" stroke-width="4" />
+  <circle cx="29" cy="76" r="4" fill="#064e3b" />
+
+  <circle cx="60" cy="76" r="8.5" fill="white" stroke="#e5cca0" stroke-width="4" />
+  <circle cx="60" cy="76" r="4" fill="#064e3b" />
+
+  <circle cx="91" cy="76" r="8.5" fill="white" stroke="#022c22" stroke-width="4" />
+  <circle cx="91" cy="76" r="4" fill="#022c22" />
+</svg>

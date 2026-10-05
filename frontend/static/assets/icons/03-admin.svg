@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <linearGradient id="adminShieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="50%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+    <linearGradient id="adminChampagneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8e7c9" />
+      <stop offset="100%" stop-color="#e5cca0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Security Shield Container -->
+  <path d="M60 14L96 28V60C96 82 80.5 100.5 60 106C39.5 100.5 24 82 24 60V28L60 14Z" fill="url(#adminShieldGrad)" stroke="#022c22" stroke-width="4" stroke-linejoin="round" />
+  
+  <!-- Shield Inner Layer -->
+  <path d="M60 22L88 33V58C88 76 76 91 60 96C44 91 32 76 32 58V33L60 22Z" fill="#022c22" opacity="0.35" />
+
+  <!-- Security Keyhole / Key Icon -->
+  <circle cx="60" cy="50" r="10" fill="#fffdf8" />
+  <path d="M57 56H63L65 72H55L57 56Z" fill="#fffdf8" />
+  <path d="M60 46V54" stroke="url(#adminShieldGrad)" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Admin Controls Pill Toggle in Champagne -->
+  <rect x="58" y="74" width="38" height="20" rx="10" fill="#ffffff" stroke="url(#adminChampagneGrad)" stroke-width="3.5" />
+  <circle cx="84" cy="84" r="6.5" fill="#064e3b" />
+</svg>

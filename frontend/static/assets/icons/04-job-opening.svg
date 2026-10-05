@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <linearGradient id="jobEmeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="50%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#022c22" />
+    </linearGradient>
+    <linearGradient id="jobChampagneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8e7c9" />
+      <stop offset="100%" stop-color="#ecd4ad" />
+    </linearGradient>
+  </defs>
+
+  <!-- Briefcase Handle -->
+  <path d="M44 36V26C44 21.5817 47.5817 18 52 18H68C72.4183 18 76 21.5817 76 26V36" stroke="url(#jobEmeraldGrad)" stroke-width="6" stroke-linecap="round" />
+
+  <!-- Briefcase Main Body -->
+  <rect x="20" y="34" width="80" height="58" rx="12" fill="url(#jobEmeraldGrad)" stroke="#022c22" stroke-width="4" />
+  
+  <!-- Briefcase Top Flap Angle in Champagne -->
+  <path d="M20 50L60 62L100 50" stroke="#e8d5b5" stroke-width="3" fill="none" opacity="0.6" />
+
+  <!-- Center Clasp in Champagne -->
+  <rect x="53" y="44" width="14" height="16" rx="4" fill="#f8e7c9" stroke="#e5cca0" stroke-width="2" />
+  <circle cx="60" cy="52" r="2.5" fill="#064e3b" />
+
+  <!-- Plus Add Badge -->
+  <circle cx="88" cy="84" r="18" fill="#ffffff" />
+  <circle cx="88" cy="84" r="15" fill="url(#jobChampagneGrad)" />
+  <path d="M88 76V92M80 84H96" stroke="#064e3b" stroke-width="4" stroke-linecap="round" />
+</svg>

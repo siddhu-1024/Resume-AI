@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <defs>
+    <linearGradient id="appCenterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="50%" stop-color="#064e3b" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="appSideGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8e7c9" />
+      <stop offset="100%" stop-color="#e5cca0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Candidate Profile in Champagne -->
+  <circle cx="34" cy="48" r="14" fill="url(#appSideGrad)" />
+  <path d="M12 92C12 79.8497 21.8497 70 34 70C46.1503 70 56 79.8497 56 92V94H12V92Z" fill="url(#appSideGrad)" />
+
+  <!-- Right Candidate Profile in Champagne -->
+  <circle cx="86" cy="48" r="14" fill="url(#appSideGrad)" />
+  <path d="M64 92C64 79.8497 73.8497 70 86 70C98.1503 70 108 79.8497 108 92V94H64V92Z" fill="url(#appSideGrad)" />
+
+  <!-- Center Prominent Candidate Profile in Emerald -->
+  <circle cx="60" cy="40" r="18" fill="url(#appCenterGrad)" stroke="white" stroke-width="4" />
+  <path d="M30 94C30 77.4315 43.4315 64 60 64C76.5685 64 90 77.4315 90 94V96H30V94Z" fill="url(#appCenterGrad)" stroke="white" stroke-width="4" />
+
+  <!-- Center Star Alignment Notch -->
+  <circle cx="60" cy="74" r="3.5" fill="#f8e7c9" />
+</svg>
