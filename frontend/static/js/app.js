@@ -57,10 +57,17 @@ const App = {
     const hash = window.location.hash || '#/home';
     const isPublicAuthPage = hash.includes('login') || hash.includes('register') || (hash === '#/home' && role === 'guest') || (hash === '' && role === 'guest');
 
+    const guestNavbar = document.getElementById('guest-navbar');
+    const appTopbar = document.getElementById('app-topbar');
+
     if (role === 'guest' || isPublicAuthPage) {
       if (rootLayout) rootLayout.classList.add('guest-mode');
+      if (guestNavbar) guestNavbar.style.setProperty('display', 'block', 'important');
+      if (appTopbar) appTopbar.style.setProperty('display', 'none', 'important');
     } else {
       if (rootLayout) rootLayout.classList.remove('guest-mode');
+      if (guestNavbar) guestNavbar.style.setProperty('display', 'none', 'important');
+      if (appTopbar) appTopbar.style.setProperty('display', 'flex', 'important');
     }
 
     // 1. ADMIN SIDEBAR & TOPBAR

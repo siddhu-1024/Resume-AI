@@ -2,8 +2,13 @@ import os
 import sys
 import logging
 
-# Ensure project root is on Python module search path
-sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+# Ensure project root and venv site-packages are on Python module search path
+project_root = os.path.abspath(os.path.dirname(__file__))
+sys.path.insert(0, project_root)
+for venv_name in ['.venv_new', '.venv']:
+    v_site = os.path.join(project_root, venv_name, 'Lib', 'site-packages')
+    if os.path.exists(v_site) and v_site not in sys.path:
+        sys.path.insert(0, v_site)
 
 from backend.app import create_app
 

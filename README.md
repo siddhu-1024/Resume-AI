@@ -1,27 +1,26 @@
-# Resume Screening Assistant
+# Resume-AI — Intelligent Resume Screening & Recruitment Platform
 
-A web-based recruitment and resume screening platform built with Python (Flask) and a vanilla JavaScript frontend. It facilitates transparent, grounded resume matching against specific job opening requirements, featuring dedicated portals for candidates and recruiters.
+A modern, production-ready AI-assisted recruitment and resume screening platform built with Python (Flask) and a premium **Glassmorphism Design System** single-page application (SPA). It provides transparent, requirement-grounded resume matching against job openings, featuring dedicated portals for candidates and recruiters.
 
 ---
 
 ## Key Capabilities
 
 * **Role-Based Access Control**:
-  * **Candidate Portal**: Browse active job openings, submit multi-page resumes (PDF / DOCX), track real-time application status, and view objective requirement match breakdowns.
+  * **Candidate Portal**: Browse active job vacancies, upload multi-page resumes (PDF / DOCX), track real-time application status, and view objective requirement match breakdowns.
   * **Recruiter / Admin Portal**: Publish job vacancies with automated NLP requirement extraction, review applicants with grounded sentence-by-sentence evidence, record confidential recruiter notes, and configure scoring weight distributions.
 * **Objective Requirement Matching**:
   * Evaluates candidates across 7 configurable dimensions: Required Skills (30%), Experience (25%), Technical Skills (15%), Projects (10%), Education (10%), Preferred Skills (5%), and Certifications (5%).
   * Real-time validation ensures weights sum to exactly 100%.
 * **Grounding Evidence Matrix**:
   * Extracts exact sentences and bullet points from the resume for each requirement, categorizing them into `Matched`, `Partially Matched`, or `Not Detected`.
-* **Data Privacy**:
+* **Data Privacy & Security**:
   * Recruiter notes, internal ratings, and audit histories are strictly filtered out on candidate endpoints.
   * Duplicate application prevention per candidate and job opening.
-* **Selective Design System (Emerald + Champagne Theme)**:
-  * **Primary Brand Color**: Emerald (`#064E3B`) for headers, navigation, primary buttons, borders, and major visual elements.
-  * **Secondary Brand Color**: Champagne (`#F8E7C9`) for highlight cards, badges, accents, and elegant decorative elements.
-  * **Supporting Palette**: Deep Emerald (`#022C22`), Soft Cream (`#FFFDF8`), Dark Text (`#1F2937`), Muted Text (`#6B7280`), and Pure White (`#FFFFFF`).
-  * Visually engaging hero showcase, split authentication cards, and 10 custom vector SVG icon assets across all candidate and recruiter views.
+* **Ultra-Premium Glassmorphism Design System**:
+  * Translucent frosted glass panels with dynamic `backdrop-filter: blur(20px)` and `-webkit-backdrop-filter` fallbacks for Safari 9+ and iOS.
+  * Deep obsidian background with ambient floating aurora mesh light spheres (`.orb-emerald`, `.orb-teal`, `.orb-champagne`, `.orb-indigo`).
+  * Specular rim highlights, luminous status indicators, responsive mobile/tablet drawer navigation, and accessible high-contrast typography.
 
 ---
 
@@ -29,22 +28,23 @@ A web-based recruitment and resume screening platform built with Python (Flask) 
 
 | Layer | Technology |
 |---|---|
-| **Backend** | Python 3.10+, Flask 3.1, Werkzeug (Session auth & security) |
+| **Backend** | Python 3.10+, Flask 3.1, Werkzeug (Session auth & security), Gunicorn (Production WSGI) |
 | **Database & ORM** | SQLite (default development) / PostgreSQL ready, SQLAlchemy 2.0 |
 | **Document Processing** | `pypdf` (PDF extraction), `python-docx` (Word extraction), `scikit-learn` (TF-IDF Cosine Similarity) |
-| **Frontend** | HTML5, Vanilla CSS Design System (Custom properties, responsive grid), Vanilla ES6 JavaScript (Hash SPA router) |
-| **Testing** | `pytest`, custom live-server verification suite |
+| **Frontend** | HTML5, Vanilla CSS Glassmorphism Design System (CSS tokens, responsive grid), Vanilla ES6 JavaScript (Hash SPA router) |
+| **Deployment** | Render Web Service (`render.yaml` Blueprint, `Procfile`), Gunicorn WSGI |
+| **Testing** | `pytest` (21 unit & integration tests), Custom end-to-end live server test suite |
 
 ---
 
 ## Project Structure
 
 ```
-resume-screening-assistant/
+Resume-AI/
 ├── backend/
 │   └── app/
-│       ├── __init__.py           # Flask application factory & database migration checks
-│       ├── config.py             # App configuration & upload paths
+│       ├── __init__.py           # Flask app factory, health endpoints & DB setup
+│       ├── config.py             # Environment configuration & upload paths
 │       ├── database.py           # SQLAlchemy database instance
 │       ├── models/               # Data models (User, Job, Application, Candidate, Resume, Screening)
 │       ├── routes/               # API Blueprints (Auth, Applications, Jobs, Screening, Reports, Settings)
@@ -52,82 +52,98 @@ resume-screening-assistant/
 │       └── utils/                # Auth decorators, logging, PDF export helpers
 ├── frontend/
 │   ├── static/
-│   │   ├── css/                  # CSS Design System (variables.css, base.css, components.css)
+│   │   ├── css/                  # Glassmorphism Design System (variables, base, components, dashboard, screening)
 │   │   └── js/                   # SPA architecture (app.js, api.js, state.js, views/)
 │   └── templates/
 │       └── index.html            # Single Page Application HTML shell
 ├── tests/                        # Automated unit, integration, and E2E test suite
 ├── uploads/                      # Uploaded resume documents (gitignored)
-├── requirements.txt              # Python dependencies
-├── run.py                        # Application entry point
-└── test_live_server.py           # End-to-end live API verification script
+├── Procfile                      # Production process specification (Gunicorn)
+├── render.yaml                   # Render Infrastructure as Code Blueprint
+├── requirements.txt              # Production Python dependencies
+├── run.py                        # Local execution script & WSGI entry point
+└── test_live_server.py           # End-to-end live server validation suite
 ```
 
 ---
 
-## Quickstart & Installation
+## Local Development & Setup
 
-### 1. Clone & Set Up Virtual Environment
+### 1. Prerequisites
+- Python 3.10+ (tested on Python 3.11, 3.12, 3.14)
+- Git
 
+### 2. Installation
 ```bash
-git clone <repo-url>
-cd "RESUME SCREENING ASSISTANT"
+# Clone the repository
+git clone https://github.com/siddhu-1024/Resume-AI.git
+cd Resume-AI
 
 # Create and activate virtual environment
 python -m venv .venv
-# On Windows:
-.venv\Scripts\activate
-# On macOS / Linux:
-source .venv/bin/activate
-```
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-### 2. Install Dependencies
-
-```bash
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### 3. Run the Application
-
+### 3. Run the Development Server
 ```bash
 python run.py
 ```
+Open your browser to `http://127.0.0.1:5000`.
 
-The application will be running at **`http://127.0.0.1:5000`**.
-
----
-
-## Default Accounts for Testing
-
-| Role | Email | Password | Access |
-|---|---|---|---|
-| **Admin (Recruiter)** | `admin@resumescreening.com` | `AdminPassword123!` | Full dashboard, job publishing, applicant screening, scoring weights |
-| **Demo Candidate** | `candidate@example.com` | `CandidatePassword123!` | Job browsing, resume upload, application tracking, candidate profile |
-
-> **Tip**: You can also register a new candidate account directly from the **Candidate Registration** screen.
-
----
-
-## Running Automated Tests
-
-Run the complete test suite using `pytest`:
-
+### 4. Run Automated Tests
 ```bash
-pytest -v
-```
+# Run pytest test suite (21 tests)
+pytest tests/
 
-To run the live server full workflow verification test against a running instance:
-
-```bash
+# Run end-to-end live server test suite (10 workflows)
 python test_live_server.py
 ```
 
 ---
 
+## Deploying to Render
+
+This repository is pre-configured for automated 1-click deployment to **Render** using either **Render Blueprints** (`render.yaml`) or a standard **Render Web Service**.
+
+### Option A: Render Blueprint (Recommended)
+1. Fork or push this repository to GitHub: `https://github.com/siddhu-1024/Resume-AI`.
+2. Log in to [Render](https://render.com).
+3. In the Render Dashboard, click **New +** > **Blueprint**.
+4. Connect the `siddhu-1024/Resume-AI` repository.
+5. Render will automatically detect `render.yaml` and configure the Web Service with:
+   - **Environment**: Python 3.11.9
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `gunicorn run:app --bind 0.0.0.0:$PORT --workers 4 --threads 2`
+   - **Health Check Path**: `/api/health`
+6. Click **Apply** to deploy.
+
+### Option B: Manual Web Service Setup
+1. In Render Dashboard, click **New +** > **Web Service**.
+2. Connect your `Resume-AI` GitHub repository.
+3. Configure the following settings:
+   - **Name**: `resume-ai`
+   - **Runtime**: `Python 3`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `gunicorn run:app --bind 0.0.0.0:$PORT --workers 4 --threads 2`
+   - **Health Check Path**: `/api/health`
+4. Under **Environment Variables**, add:
+   - `SECRET_KEY`: `<generate-a-random-secret>`
+   - `FLASK_ENV`: `production`
+   - `PYTHON_VERSION`: `3.11.9`
+5. Click **Create Web Service**.
+
+---
+
 ## API Overview
 
+### Health & Monitoring
+* `GET  /health` & `GET /api/health` — Returns service health status for Render uptime probes.
+
 ### Authentication
-* `POST /api/auth/register` — Candidate account creation.
+* `POST /api/auth/register` — Candidate account registration.
 * `POST /api/auth/login` — Sign in candidate or admin.
 * `GET  /api/auth/me` — Return currently authenticated user session.
 * `POST /api/auth/logout` — Terminate session.

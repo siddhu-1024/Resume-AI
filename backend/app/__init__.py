@@ -42,6 +42,16 @@ def create_app(config_class=Config):
     # Ensure upload directory exists
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
     
+    # Health Check Endpoints (for Render and uptime monitoring)
+    @app.route('/health')
+    @app.route('/api/health')
+    def health_check():
+        return jsonify({
+            'status': 'healthy',
+            'service': 'resume-ai',
+            'version': '1.0.0'
+        }), 200
+
     # Root SPA route
     @app.route('/', defaults={'path': ''})
     @app.route('/<path:path>')
@@ -68,36 +78,37 @@ def create_app(config_class=Config):
     with app.app_context():
         db.create_all()
         # Schema migration helper for existing SQLite databases
-        try:
-            from sqlalchemy import text
-            with db.engine.connect() as conn:
-                # 1. Candidates table user_id
-                cols = [row[1] for row in conn.execute(text("PRAGMA table_info(candidates)")).fetchall()]
-                if 'user_id' not in cols and len(cols) > 0:
-                    conn.execute(text("ALTER TABLE candidates ADD COLUMN user_id INTEGER REFERENCES users(id)"))
-                    conn.commit()
-                # 2. Resumes table application_id
-                r_cols = [row[1] for row in conn.execute(text("PRAGMA table_info(resumes)")).fetchall()]
-                if 'application_id' not in r_cols and len(r_cols) > 0:
-                    conn.execute(text("ALTER TABLE resumes ADD COLUMN application_id INTEGER"))
-                    conn.commit()
-                # 3. Screening results application_id
-                s_cols = [row[1] for row in conn.execute(text("PRAGMA table_info(screening_results)")).fetchall()]
-                if 'application_id' not in s_cols and len(s_cols) > 0:
-                    conn.execute(text("ALTER TABLE screening_results ADD COLUMN application_id INTEGER REFERENCES applications(id)"))
-                    conn.commit()
-                # 4. Candidate notes application_id
-                n_cols = [row[1] for row in conn.execute(text("PRAGMA table_info(candidate_notes)")).fetchall()]
-                if 'application_id' not in n_cols and len(n_cols) > 0:
-                    conn.execute(text("ALTER TABLE candidate_notes ADD COLUMN application_id INTEGER REFERENCES applications(id)"))
-                    conn.commit()
-                # 5. Status history application_id
-                h_cols = [row[1] for row in conn.execute(text("PRAGMA table_info(candidate_status_history)")).fetchall()]
-                if 'application_id' not in h_cols and len(h_cols) > 0:
-                    conn.execute(text("ALTER TABLE candidate_status_history ADD COLUMN application_id INTEGER REFERENCES applications(id)"))
-                    conn.commit()
-        except Exception as e:
-            app.logger.warning(f"Schema sync notice: {e}")
+        if db.engine.name == 'sqlite':
+            try:
+                from sqlalchemy import text
+                with db.engine.connect() as conn:
+                    # 1. Candidates table user_id
+                    cols = [row[1] for row in conn.execute(text("PRAGMA table_info(candidates)")).fetchall()]
+                    if 'user_id' not in cols and len(cols) > 0:
+                        conn.execute(text("ALTER TABLE candidates ADD COLUMN user_id INTEGER REFERENCES users(id)"))
+                        conn.commit()
+                    # 2. Resumes table application_id
+                    r_cols = [row[1] for row in conn.execute(text("PRAGMA table_info(resumes)")).fetchall()]
+                    if 'application_id' not in r_cols and len(r_cols) > 0:
+                        conn.execute(text("ALTER TABLE resumes ADD COLUMN application_id INTEGER"))
+                        conn.commit()
+                    # 3. Screening results application_id
+                    s_cols = [row[1] for row in conn.execute(text("PRAGMA table_info(screening_results)")).fetchall()]
+                    if 'application_id' not in s_cols and len(s_cols) > 0:
+                        conn.execute(text("ALTER TABLE screening_results ADD COLUMN application_id INTEGER REFERENCES applications(id)"))
+                        conn.commit()
+                    # 4. Candidate notes application_id
+                    n_cols = [row[1] for row in conn.execute(text("PRAGMA table_info(candidate_notes)")).fetchall()]
+                    if 'application_id' not in n_cols and len(n_cols) > 0:
+                        conn.execute(text("ALTER TABLE candidate_notes ADD COLUMN application_id INTEGER REFERENCES applications(id)"))
+                        conn.commit()
+                    # 5. Status history application_id
+                    h_cols = [row[1] for row in conn.execute(text("PRAGMA table_info(candidate_status_history)")).fetchall()]
+                    if 'application_id' not in h_cols and len(h_cols) > 0:
+                        conn.execute(text("ALTER TABLE candidate_status_history ADD COLUMN application_id INTEGER REFERENCES applications(id)"))
+                        conn.commit()
+            except Exception as e:
+                app.logger.warning(f"Schema sync notice: {e}")
 
         ensure_default_admin()
         

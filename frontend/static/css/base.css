@@ -1,7 +1,6 @@
 /* ==========================================================================
-   Base Reset & Sidebar Navigation Design System
-   Brand Theme: Emerald (#064E3B) + Champagne (#F8E7C9)
-   Aesthetic: Premium, Elegant Recruitment-Tech / SaaS
+   Base Reset, Ambient Mesh & Glassmorphism Navigation Shell
+   Aesthetic: Ultra-Premium Frosted Glassmorphism with Refractive Depth
    ========================================================================== */
 
 *, *::before, *::after {
@@ -17,22 +16,107 @@ html, body {
   line-height: 1.5;
   color: var(--text-main);
   background-color: var(--bg-app);
+  background-image: var(--bg-canvas-gradient);
+  background-attachment: fixed;
+  background-size: cover;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* Custom Sleek Scrollbars */
+/* ==========================================================================
+   Ambient Aurora Light Spheres (Provides Realistic Glass Refraction)
+   ========================================================================== */
+.ambient-background-mesh {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.85;
+  will-change: transform;
+}
+
+.orb-emerald {
+  top: -12%;
+  left: 8%;
+  width: 580px;
+  height: 580px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.28) 0%, rgba(16, 185, 129, 0) 70%);
+  animation: floatOrb1 22s ease-in-out infinite alternate;
+}
+
+.orb-teal {
+  bottom: 8%;
+  right: 6%;
+  width: 640px;
+  height: 640px;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.22) 0%, rgba(20, 184, 166, 0) 70%);
+  animation: floatOrb2 26s ease-in-out infinite alternate;
+}
+
+.orb-champagne {
+  top: 38%;
+  right: 22%;
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.16) 0%, rgba(251, 191, 36, 0) 70%);
+  animation: floatOrb3 19s ease-in-out infinite alternate;
+}
+
+.orb-indigo {
+  bottom: -15%;
+  left: 28%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.14) 0%, rgba(99, 102, 241, 0) 70%);
+  animation: floatOrb4 24s ease-in-out infinite alternate;
+}
+
+@keyframes floatOrb1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, 30px) scale(1.08); }
+  100% { transform: translate(-30px, 50px) scale(0.95); }
+}
+
+@keyframes floatOrb2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, -40px) scale(1.12); }
+  100% { transform: translate(30px, -20px) scale(0.92); }
+}
+
+@keyframes floatOrb3 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-35px, 45px) scale(1.05); }
+  100% { transform: translate(40px, -30px) scale(1); }
+}
+
+@keyframes floatOrb4 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(45px, -35px) scale(1.08); }
+  100% { transform: translate(-25px, 25px) scale(0.96); }
+}
+
+/* Custom Frosted Glass Scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--bg-app-subtle);
+  background: rgba(7, 18, 22, 0.5);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--champagne-dark);
+  background: rgba(255, 255, 255, 0.18);
   border-radius: var(--radius-full);
-  border: 2px solid var(--bg-app-subtle);
+  border: 2px solid rgba(7, 18, 22, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   transition: background var(--transition-fast);
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -42,13 +126,13 @@ html, body {
 @supports (scrollbar-width: thin) {
   * {
     scrollbar-width: thin;
-    scrollbar-color: var(--champagne-dark) var(--bg-app-subtle);
+    scrollbar-color: rgba(255, 255, 255, 0.22) rgba(7, 18, 22, 0.5);
   }
 }
 
 ::selection {
-  background-color: var(--champagne);
-  color: var(--deep-emerald);
+  background-color: rgba(16, 185, 129, 0.35);
+  color: #ffffff;
 }
 
 a {
@@ -58,7 +142,7 @@ a {
 }
 a:hover {
   text-decoration: underline;
-  color: var(--primary-hover);
+  color: #34d399;
 }
 
 button, input, select, textarea {
@@ -67,14 +151,15 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   App Shell Layout (Sidebar Workspace & Guest Views)
+   App Shell Layout (Glassmorphism Workspace & Guest Views)
    ========================================================================== */
 
 .app-layout {
   display: flex;
   min-height: 100vh;
-  background-color: var(--bg-app);
+  background-color: transparent;
   position: relative;
+  z-index: 1;
 }
 
 /* Mobile Sidebar Backdrop Overlay */
@@ -82,9 +167,9 @@ button, input, select, textarea {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(2, 44, 34, 0.55);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  background: rgba(4, 10, 14, 0.72);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   z-index: 190;
   opacity: 0;
   transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -96,12 +181,14 @@ button, input, select, textarea {
 
 /* ==========================================================================
    Fixed Left Sidebar (Desktop: 256px Width / Mobile: Slide-in Drawer)
-   Primary Color: Emerald (#064E3B) with Champagne (#F8E7C9) Accents
+   Style: Ultra-Frosted Translucent Glass with Ambient Edge Reflection
    ========================================================================== */
 
 .app-sidebar {
   width: 256px;
-  background: linear-gradient(180deg, #064e3b 0%, #033a2c 55%, #022c22 100%);
+  background: var(--glass-bg-sidebar);
+  -webkit-backdrop-filter: var(--glass-backdrop-heavy);
+  backdrop-filter: var(--glass-backdrop-heavy);
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -111,8 +198,8 @@ button, input, select, textarea {
   bottom: 0;
   left: 0;
   z-index: 200;
-  border-right: 1px solid rgba(248, 231, 201, 0.15);
-  box-shadow: 4px 0 20px rgba(2, 44, 34, 0.16);
+  border-right: 1px solid var(--glass-border);
+  box-shadow: 4px 0 32px rgba(0, 0, 0, 0.45), inset -1px 0 0 rgba(255, 255, 255, 0.05);
   transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
   overflow-x: hidden;
@@ -124,7 +211,7 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(248, 231, 201, 0.12);
+  border-bottom: 1px solid var(--glass-border-subtle);
   flex-shrink: 0;
 }
 
@@ -140,22 +227,25 @@ button, input, select, textarea {
 }
 
 .sidebar-brand-logo {
-  width: 38px;
-  height: 38px;
-  background: linear-gradient(135deg, #ffffff 0%, var(--champagne-light) 100%);
-  border: 1.5px solid var(--champagne);
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid var(--champagne-border);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   flex-shrink: 0;
-  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 .sidebar-brand-link:hover .sidebar-brand-logo {
   transform: scale(1.05);
   border-color: #ffffff;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
 }
 .sidebar-brand-logo img {
   width: 100%;
@@ -178,7 +268,7 @@ button, input, select, textarea {
 }
 .sidebar-brand-sub {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--champagne);
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -203,40 +293,43 @@ button, input, select, textarea {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(248, 231, 201, 0.12);
-  border: 1px solid rgba(248, 231, 201, 0.22);
-  padding: 5px 10px;
-  border-radius: var(--radius-sm);
+  background: rgba(253, 230, 138, 0.09);
+  border: 1px solid rgba(253, 230, 138, 0.28);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
   font-size: 11px;
   font-weight: 700;
   color: var(--champagne);
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 .role-badge-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background-color: var(--champagne);
-  box-shadow: 0 0 6px var(--champagne);
+  box-shadow: 0 0 8px var(--champagne);
 }
 
 /* Sidebar Navigation Items */
 .sidebar-nav {
-  padding: 10px 10px 20px 10px;
+  padding: 10px 12px 20px 12px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
 }
 
 .sidebar-nav-section-title {
   font-size: 10.5px;
   font-weight: 700;
-  color: rgba(248, 231, 201, 0.6);
+  color: rgba(253, 230, 138, 0.65);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 10px 12px 4px 12px;
+  padding: 12px 12px 6px 12px;
 }
 
 .sidebar-nav-item {
@@ -245,19 +338,23 @@ button, input, select, textarea {
   gap: 12px;
   padding: 10px 14px;
   border-radius: var(--radius-md);
-  color: rgba(253, 248, 238, 0.85);
+  color: rgba(226, 232, 240, 0.85);
   font-size: 13.5px;
   font-weight: 500;
   text-decoration: none;
+  border: 1px solid transparent;
   transition: all var(--transition-fast);
   position: relative;
 }
 
 .sidebar-nav-item:hover {
-  background: rgba(248, 231, 201, 0.12);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.12);
   color: #ffffff;
   text-decoration: none;
   transform: translateX(3px);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .sidebar-nav-item .nav-item-icon {
@@ -279,41 +376,48 @@ button, input, select, textarea {
 .sidebar-nav-item .nav-item-badge {
   font-size: 11px;
   font-weight: 700;
-  background: rgba(248, 231, 201, 0.2);
+  background: rgba(253, 230, 138, 0.18);
   color: var(--champagne);
   padding: 2px 7px;
   border-radius: var(--radius-full);
+  border: 1px solid rgba(253, 230, 138, 0.3);
 }
 
-/* Active Menu Item: Clear Champagne highlight (#F8E7C9) with Emerald text/icon (#064E3B) */
+/* Active Menu Item: Glowing Champagne-Emerald Glass Highlight */
 .sidebar-nav-item.active {
-  background: var(--champagne);
-  color: #064e3b;
+  background: linear-gradient(135deg, rgba(253, 230, 138, 0.18) 0%, rgba(16, 185, 129, 0.16) 100%);
+  border: 1px solid rgba(253, 230, 138, 0.45);
+  color: #ffffff;
   font-weight: 700;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14), inset 0 0 0 1px #e8d5b5;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 0 16px rgba(253, 230, 138, 0.15);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
 }
 .sidebar-nav-item.active:hover {
-  background: #fdf8ee;
-  color: #064e3b;
+  background: linear-gradient(135deg, rgba(253, 230, 138, 0.24) 0%, rgba(16, 185, 129, 0.20) 100%);
+  border-color: rgba(253, 230, 138, 0.6);
   transform: none;
 }
 .sidebar-nav-item.active .nav-item-icon {
-  color: #064e3b;
+  color: var(--champagne);
 }
 .sidebar-nav-item.active .nav-item-icon svg {
-  stroke: #064e3b;
-  stroke-width: 2.4;
+  stroke: var(--champagne);
+  stroke-width: 2.3;
 }
 .sidebar-nav-item.active .nav-item-badge {
-  background: #064e3b;
-  color: var(--champagne);
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary-border);
 }
 
 /* Sidebar Footer: Profile Summary & Logout */
 .sidebar-footer {
   padding: 16px 14px 18px 14px;
-  border-top: 1px solid rgba(248, 231, 201, 0.12);
-  background: rgba(2, 44, 34, 0.4);
+  border-top: 1px solid var(--glass-border-subtle);
+  background: rgba(5, 13, 17, 0.65);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -324,18 +428,19 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 10px;
+  padding: 9px 12px;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(248, 231, 201, 0.1);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xs);
 }
 
 .sidebar-user-avatar {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: var(--champagne);
-  color: #064e3b;
+  background: rgba(253, 230, 138, 0.15);
+  color: var(--champagne);
   font-weight: 800;
   font-size: 13px;
   display: flex;
@@ -343,6 +448,7 @@ button, input, select, textarea {
   justify-content: center;
   border: 1.5px solid var(--champagne-border);
   flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .sidebar-user-meta {
@@ -375,19 +481,20 @@ button, input, select, textarea {
   gap: 8px;
   width: 100%;
   padding: 9px 14px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(248, 231, 201, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
-  color: #fdf8ee;
+  color: #cbd5e1;
   font-size: 12.5px;
   font-weight: 600;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 .sidebar-logout-btn:hover {
-  background: rgba(239, 68, 68, 0.2);
-  border-color: rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.22);
+  border-color: rgba(239, 68, 68, 0.45);
   color: #fecaca;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.2);
   transform: translateY(-1px);
 }
 
@@ -401,21 +508,23 @@ button, input, select, textarea {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-app);
+  background-color: transparent;
   transition: margin-left 0.28s cubic-bezier(0.4, 0, 0.2, 1), width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 10;
 }
 
-/* Authenticated Topbar */
+/* Authenticated Topbar (Frosted Floating Glass) */
 .app-topbar {
   position: sticky;
   top: 0;
   z-index: 100;
   height: 64px;
-  background: rgba(255, 253, 248, 0.96);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--champagne-border);
-  box-shadow: 0 2px 8px -2px rgba(6, 78, 59, 0.04);
+  background: var(--glass-bg-topbar);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  backdrop-filter: var(--glass-backdrop);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -435,18 +544,18 @@ button, input, select, textarea {
   justify-content: center;
   width: 36px;
   height: 36px;
-  background: #ffffff;
-  border: 1px solid var(--champagne-border);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
-  color: #064e3b;
+  color: #ffffff;
   cursor: pointer;
   box-shadow: var(--shadow-xs);
   transition: all var(--transition-fast);
 }
 .topbar-hamburger-btn:hover {
-  background: var(--champagne-light);
-  border-color: var(--primary);
-  color: var(--primary-hover);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--primary-border);
+  color: var(--primary);
 }
 
 .topbar-breadcrumbs {
@@ -460,11 +569,12 @@ button, input, select, textarea {
   font-weight: 500;
 }
 .breadcrumb-separator {
-  color: var(--champagne-dark);
+  color: rgba(255, 255, 255, 0.25);
 }
 .breadcrumb-active {
-  color: #064e3b;
+  color: #ffffff;
   font-weight: 700;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
 }
 
 .topbar-right {
@@ -478,14 +588,19 @@ button, input, select, textarea {
    ========================================================================== */
 
 .guest-navbar {
+  display: none !important;
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 253, 248, 0.98);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--champagne-border);
-  box-shadow: 0 2px 8px -2px rgba(6, 78, 59, 0.05);
+  background: var(--glass-bg-topbar);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  backdrop-filter: var(--glass-backdrop);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.app-layout:not(.guest-mode) .guest-navbar {
+  display: none !important;
 }
 
 .guest-navbar-container {
@@ -504,7 +619,7 @@ button, input, select, textarea {
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  color: var(--text-heading);
+  color: #ffffff;
 }
 .brand-link:hover {
   text-decoration: none;
@@ -513,22 +628,24 @@ button, input, select, textarea {
 .brand-logo-icon {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #ffffff, var(--champagne-light));
+  background: rgba(255, 255, 255, 0.08);
   border: 1.5px solid var(--champagne-border);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px;
-  box-shadow: 0 2px 6px rgba(6, 78, 59, 0.08);
+  padding: 5px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
   flex-shrink: 0;
   overflow: hidden;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 .brand-link:hover .brand-logo-icon {
   transform: scale(1.05);
-  border-color: var(--primary);
-  box-shadow: 0 4px 12px rgba(6, 78, 59, 0.15);
+  border-color: #ffffff;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
 }
 .brand-logo-icon img {
   width: 100%;
@@ -541,7 +658,7 @@ button, input, select, textarea {
   font-size: 16px;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: var(--text-heading);
+  color: #ffffff;
 }
 
 .guest-nav-links {
@@ -560,18 +677,23 @@ button, input, select, textarea {
   font-weight: 600;
   font-size: 13.5px;
   text-decoration: none;
+  border: 1px solid transparent;
   transition: all var(--transition-fast);
 }
 .top-nav-link:hover {
-  color: var(--primary);
-  background-color: var(--champagne-subtle);
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
   text-decoration: none;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 .top-nav-link.active {
-  color: var(--primary-dark);
-  background-color: var(--champagne);
+  color: #ffffff;
+  background: rgba(253, 230, 138, 0.16);
+  border-color: var(--champagne-border);
   font-weight: 700;
-  box-shadow: inset 0 0 0 1px var(--champagne-border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .guest-nav-actions {
@@ -620,10 +742,13 @@ button, input, select, textarea {
    ========================================================================== */
 
 .app-footer {
-  background: #ffffff;
-  border-top: 1px solid var(--champagne-border);
-  padding: 22px 0;
+  background: var(--glass-bg-footer);
+  -webkit-backdrop-filter: var(--glass-backdrop-subtle);
+  backdrop-filter: var(--glass-backdrop-subtle);
+  border-top: 1px solid var(--glass-border);
+  padding: 24px 0;
   margin-top: auto;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.35);
 }
 
 .app-footer-container {
@@ -656,16 +781,16 @@ button, input, select, textarea {
   width: 24px;
   height: 24px;
   object-fit: contain;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--champagne-border);
   border-radius: var(--radius-sm);
   padding: 2px;
-  box-shadow: 0 1px 2px rgba(6, 78, 59, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .footer-brand {
   font-weight: 700;
-  color: var(--text-heading);
+  color: #ffffff;
 }
 
 .footer-right {
@@ -677,9 +802,11 @@ button, input, select, textarea {
 .footer-link {
   color: var(--text-muted);
   font-weight: 500;
+  transition: color var(--transition-fast);
 }
 .footer-link:hover {
   color: var(--primary);
+  text-decoration: none;
 }
 
 /* ==========================================================================
@@ -704,9 +831,10 @@ button, input, select, textarea {
   font-size: 24px;
   font-weight: 800;
   letter-spacing: -0.025em;
-  color: var(--text-heading);
+  color: #ffffff;
   margin-bottom: 4px;
   line-height: 1.25;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .page-subheading {
@@ -728,7 +856,7 @@ button, input, select, textarea {
 @media (max-width: 991px) {
   .app-sidebar {
     transform: translateX(-100%);
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.35);
+    box-shadow: 10px 0 36px rgba(0, 0, 0, 0.6);
   }
   .app-sidebar.sidebar-open {
     transform: translateX(0);

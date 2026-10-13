@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: resume-ai
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn run:app --bind 0.0.0.0:$PORT --workers 4 --threads 2
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: SECRET_KEY
+        generateValue: true
+      - key: FLASK_ENV
+        value: production
+      - key: UPLOAD_FOLDER
+        value: uploads
+      - key: MAX_CONTENT_LENGTH
+        value: "16777216"
